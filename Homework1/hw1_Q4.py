@@ -85,32 +85,7 @@ plt.title("QQ Plot - SVR Residuals")
 plt.show()
 
 # -------------------------
-# Decision Tree Regression
-# -------------------------
-
-tree_model = DecisionTreeRegressor(random_state=42)
-tree_model.fit(X, y)
-
-# Predictions
-y_pred_tree = tree_model.predict(X)
-
-# Residuals
-residuals_tree = y - y_pred_tree
-
-# Normality test
-statistic_tree, p_value_tree = normaltest(residuals_tree)
-
-print("\nDecision Tree Regression")
-print("Normality test statistic:", statistic_tree)
-print("p-value:", p_value_tree)
-
-# QQ plot
-stats.probplot(residuals_tree, dist="norm", plot=plt)
-plt.title("QQ Plot - Decision Tree Residuals")
-plt.show()
-
-# -------------------------
-# Decision Tree Regression max_depth
+# Decision Tree Regression with max_depth
 # -------------------------
 
 tree_model = DecisionTreeRegressor(
